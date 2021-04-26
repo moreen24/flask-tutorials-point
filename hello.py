@@ -10,7 +10,7 @@ def hello_world():
 def home():
    return "This is home"
 
-@app.route('/produts<name>')
+@app.route('/produts/<name>')
 def get_products(name):
     return "the product name is " + str(name)
 
