@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect
 app = Flask(__name__)
 
 @app.route('/')
@@ -36,11 +36,13 @@ def hello_guest(guest):
 
 @app.route('/user/<name>')
 def hello_user(name):
-  if name == admin:
+  if name == 'admin':
    return redirect(url_for('hello_admin'))
   else:
-   return redirect (url_for ('hello_guest', guest= name))      
+   return redirect (url_for('hello_guest', guest= name))      
 
 if __name__ == '__main__':
-   app.run()
+   app.run(debug=True)
+ return url_for('delete_elasti_ip',region=None,ip=None)
+
 
