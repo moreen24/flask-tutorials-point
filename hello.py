@@ -18,6 +18,14 @@ def get_products(name):
 def create(first_name=None,last_name=None):
     return 'hello' + first_name +","+ last_name    
 
+@app.route('/flask')
+def hello_flask(): 
+   return'hello flask'
+
+@app.route('/python/')
+def hello_python():
+   return 'helo python'
+
 if __name__ == '__main__':
    app.run()
 
