@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
@@ -39,7 +39,7 @@ def hello_user(name):
   if name == 'admin':
    return redirect(url_for('hello_admin'))
   else:
-   return redirect (url_for('hello_guest', guest= name))      
+     
 
 if __name__ == '__main__':
 
