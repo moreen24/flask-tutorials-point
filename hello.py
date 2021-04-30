@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for
-import string, random
+import string, random, request
 app = Flask(__name__)
 
 @app.route('/produts/<name>')
@@ -52,6 +52,19 @@ def second_route():
 @app.route('/third/<string:name>')
 def third_route(name):
    return 'the name is  ' + name
+
+@app.route('/succes/<name>')
+def succes (name):
+   return 'welcome %s' % name
+@app.route('/login',methods=['POST', 'GET'])
+def login ():
+   if request.method  == 'POST':
+       user = request.form['nm']
+       return redirect (url_for('succes',name=user))
+   else:
+      user = request.args.get('nm')
+      return redirect(url_for('succes',name = user))
+      
 
 
 if __name__ == '__main__':
