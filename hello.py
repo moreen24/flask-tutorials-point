@@ -1,16 +1,6 @@
 from flask import Flask, redirect, url_for
-import string
-import random
+import string, random
 app = Flask(__name__)
-
-# @app.route('/')
-# def hello_world():
-#    return "Hello World"
-
-
-# @app.route('/home')
-# def home():
-#    return "This is home"
 
 @app.route('/produts/<name>')
 def get_products(name):
