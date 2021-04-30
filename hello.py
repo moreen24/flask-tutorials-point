@@ -1,4 +1,6 @@
 from flask import Flask, redirect, url_for
+import string
+import random
 app = Flask(__name__)
 
 # @app.route('/')
@@ -44,20 +46,26 @@ def hello_user(name):
 @app.route('/')
 def index():
    return 'the index'
+ 
 
 @app.route('/first')
 def first_route():
-   return url_for('index') 
+   return redirect('/second')
+
 
 @app.route('/second')
-def second_route():
-  return url_for('third_route')
+def second_route():                    
+  #name = currently logged in user           
+  name = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))                                
+  return  redirect('/third/' + name)
 
 @app.route('/third/<string:name>')
 def third_route(name):
-   return 'the name is' + name
+   return 'the name is  ' + name
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
 
 
