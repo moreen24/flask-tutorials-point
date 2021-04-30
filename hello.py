@@ -51,7 +51,7 @@ def first_route():
 
 @app.route('/second')
 def second_route():
-  return redirect(url_for('index'))  
+  return url_for('third_route')
 
 @app.route('/third/<string:name>')
 def third_route(name):
